@@ -1,5 +1,3 @@
-# app/models/bookmark.py
-
 from tortoise import fields
 from tortoise.models import Model
 
@@ -10,10 +8,12 @@ from app.models.user import User
 class Bookmark(Model):
     id = fields.IntField(pk=True)
     user: fields.ForeignKeyRelation[User] = fields.ForeignKeyField(
-        "app.models.User", related_name="user_questions"
+        "models.User",
+        related_name="bookmarks",  # 여기 수정
     )
     quote: fields.ForeignKeyRelation[Quote] = fields.ForeignKeyField(
-        "app.models.quote", related_name="user_questions"
+        "models.Quote",
+        related_name="bookmarks",  # 클래스 이름 사용
     )
 
     class Meta:

@@ -44,7 +44,6 @@ ignore = []
 
 
 [tool.aerich]
-# Tortoise ORM 설정이 있는 파일을 지정합니다.
-tortoise_orm = "app.db.database.TORTOISE_CONFIG"
+tortoise_orm = "app.db.database.TORTOISE_ORM"
 location = "./migrations"
 src_folder = "./."

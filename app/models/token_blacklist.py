@@ -11,8 +11,9 @@ class TokenBlacklist(Model):
 
     id = fields.IntField(pk=True)
     token = fields.CharField(max_length=500, unique=True, null=False)
+    # 아래 라인의 "models.User"를 "app.models.User"로 변경합니다.
     user: fields.ForeignKeyRelation[User] = fields.ForeignKeyField(
-        "app.models.User", related_name="token_blacklist"
+        "models.User", related_name="token_blacklist"
     )
     expired_at = fields.DatetimeField(null=False)
 

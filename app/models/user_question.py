@@ -10,10 +10,10 @@ from app.models.user import User
 class UserQuestion(Model):
     id = fields.IntField(pk=True)
     user: fields.ForeignKeyRelation[User] = fields.ForeignKeyField(
-        "app.models.User", related_name="user_questions"
+        "models.User", related_name="user_questions"
     )
     question: fields.ForeignKeyRelation[Question] = fields.ForeignKeyField(
-        "app.models.Question", related_name="user_questions"
+        "models.Question", related_name="user_questions"
     )
 
     class Meta:

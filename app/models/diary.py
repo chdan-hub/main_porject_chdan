@@ -11,7 +11,7 @@ class Diary(Model):
     created_at = fields.DatetimeField(auto_now_add=True)
     updated_at = fields.DatetimeField(auto_now=True)
     user: fields.ForeignKeyRelation[User] = fields.ForeignKeyField(
-        "app.models.User", related_name="diaries"
+        "models.User", related_name="diaries"
     )
 
     def __str__(self):
