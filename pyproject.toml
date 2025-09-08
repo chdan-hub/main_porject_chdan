@@ -1,0 +1,49 @@
+[project]
+name = "pythonproject"
+version = "0.1.0"
+description = "Add your description here"
+requires-python = ">=3.13"
+dependencies = [
+    "aerich>=0.9.1",
+    "asyncpg>=0.30.0",
+    "beautifulsoup4>=4.13.5",
+    "fastapi>=0.116.1",
+    "psycopg2-binary>=2.9.10",
+    "python-dotenv>=1.1.1",
+    "requests>=2.32.5",
+    "sqlalchemy[asyncio]>=2.0.43",
+    "tortoise-orm>=0.25.1",
+    "uvicorn>=0.35.0",
+]
+
+[dependency-groups]
+dev = [
+    "black>=25.1.0",
+    "pytest>=8.4.2",
+    "ruff>=0.12.12",
+]
+
+[tool.ruff]
+# 파일 또는 디렉토리 제외
+exclude = [
+    ".git",
+    "__pycache__",
+    ".venv",
+    "venv",
+]
+# 한 줄 최대 길이를 설정합니다. (Black과 일치시킵니다)
+line-length = 88
+
+[tool.ruff.lint]
+# Ruff가 적용될 코드의 경로를 지정합니다.
+select = ["E", "F", "B", "I"]
+# E: pycodestyle, F: pyflakes, B: bugbear, I: isort
+ignore = []
+# 무시할 규칙이 있다면 여기에 추가합니다. 예: ignore = ["E501"] (한 줄 최대 길이)
+
+
+[tool.aerich]
+# Tortoise ORM 설정이 있는 파일을 지정합니다.
+tortoise_orm = "app.db.database.TORTOISE_CONFIG"
+location = "./migrations"
+src_folder = "./."
