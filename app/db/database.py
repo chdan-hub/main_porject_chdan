@@ -44,5 +44,6 @@ async def init_db():
     try:
         await Tortoise.init(config=TORTOISE_ORM)
         await Tortoise.generate_schemas()
+        print("✅ 데이터베이스 연결 및 스키마 생성 완료")
     except Exception as e:
         print(f"데이터베이스 연결 초기화 실패: {e}")
