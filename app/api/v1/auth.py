@@ -20,7 +20,7 @@ router = APIRouter(prefix="/auth", tags=["auth"])
 async def register(payload: UserCreate):
     user = await register_user(
         username=payload.username,
-        email=payload.email,
+        email=str(payload.email),
         password=payload.password,
     )
     return UserResponse(id=user.id, username=user.username, email=user.email)
