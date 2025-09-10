@@ -9,7 +9,7 @@ class Bookmark(Model):
     id = fields.IntField(pk=True)
     user: fields.ForeignKeyRelation[User] = fields.ForeignKeyField(
         "models.User",
-        related_name="bookmarks",  # 여기 수정
+        related_name="bookmarks",
     )
     quote: fields.ForeignKeyRelation[Quote] = fields.ForeignKeyField(
         "models.Quote",
