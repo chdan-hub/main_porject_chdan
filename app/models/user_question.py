@@ -6,7 +6,7 @@ from app.models.user import User
 
 
 class UserQuestion(Model):
-    id = fields.IntField(pk=True)
+    id = fields.IntField(primary_key=True)
 
     user: fields.ForeignKeyRelation[User] = fields.ForeignKeyField(
         "models.User", related_name="user_questions", on_delete=fields.RESTRICT

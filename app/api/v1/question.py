@@ -17,4 +17,4 @@ CurrentUser = Annotated[User, Depends(get_current_user)]
 async def get_random_question(current_user: CurrentUser):
     # 위치 인자로 전달(서비스는 _current_user로 받음)
     q = await svc_get_random_question(current_user)
-    return QuestionResponse(id=q.id, content=q.question_text)
+    return QuestionResponse(id=q.id, question_text=q.question_text)

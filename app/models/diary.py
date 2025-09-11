@@ -5,7 +5,7 @@ from app.models.user import User
 
 
 class Diary(Model):
-    id = fields.IntField(pk=True)
+    id = fields.IntField(primary_key=True)
     title = fields.CharField(max_length=255, null=False)
     content = fields.TextField()
     created_at = fields.DatetimeField(auto_now_add=True)

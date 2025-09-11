@@ -5,7 +5,7 @@ from tortoise.models import Model
 
 
 class Question(Model):
-    id = fields.IntField(pk=True)
+    id = fields.IntField(primary_key=True)
     question_text = fields.TextField(null=False)
 
     def __str__(self):

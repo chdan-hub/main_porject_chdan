@@ -51,6 +51,18 @@ async def list_my_diaries(
     return [to_response(d) for d in diaries]
 
 
+@router.get("/my", response_model=list[DiaryResponse])
+async def list_my_diaries_alias(
+    current_user: CurrentUser,
+    limit: int = Query(20, ge=1, le=100),
+    offset: int = Query(0, ge=0),
+):
+    diaries = await svc_list_my_diaries(
+        current_user=current_user, limit=limit, offset=offset
+    )
+    return [to_response(d) for d in diaries]
+
+
 @router.get("/{diary_id}", response_model=DiaryResponse)
 async def get_my_diary(diary_id: int, current_user: CurrentUser):
     diary = await svc_get_my_diary(current_user=current_user, diary_id=diary_id)

@@ -9,7 +9,7 @@ class TokenBlacklist(Model):
     로그아웃된 JWT 토큰을 저장하여 보안을 강화합니다.
     """
 
-    id = fields.IntField(pk=True)
+    id = fields.IntField(primary_key=True)
     token = fields.CharField(max_length=500, unique=True, null=False)
     # 아래 라인의 "models.User"를 "app.models.User"로 변경합니다.
     user: fields.ForeignKeyRelation[User] = fields.ForeignKeyField(
